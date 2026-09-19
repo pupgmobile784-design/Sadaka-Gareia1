@@ -1,0 +1,118 @@
+:root{--bg:#F8F6F0;--surface:#fff;--head:#12372A;--btn:#12372A;--btn2:#2B5D49;--gold:#C6A15B;--text:#1D2923;--muted:#4d5b53;--line:rgba(18,55,42,.16);--ease:cubic-bezier(.22,.61,.36,1)}
+:root[data-theme=dark]{--bg:#0D1712;--surface:#14231B;--head:#F4F1E8;--btn:#2B5D49;--btn2:#3a755d;--text:#F4F1E8;--muted:#b9c2ba;--line:rgba(244,241,232,.16)}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:64px;-webkit-text-size-adjust:100%}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{background:var(--bg);color:var(--text);font:400 1.0625rem/1.9 Cairo,system-ui,sans-serif;overflow-x:hidden;-webkit-tap-highlight-color:transparent}
+body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.075;background:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'><g fill='none' stroke='%23C6A15B' stroke-width='1'><rect x='20' y='20' width='40' height='40'/><rect x='20' y='20' width='40' height='40' transform='rotate(45 40 40)'/><path d='M0 -8L8 0L0 8L-8 0Z M80 -8L88 0L80 8L72 0Z M0 72L8 80L0 88L-8 80Z M80 72L88 80L80 88L72 80Z'/></g></svg>")}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:6px}
+h1,h2,blockquote,.h-dua,.dua p{font-family:Amiri,'Traditional Arabic',serif}
+h2{font-size:clamp(1.9rem,6vw,2.6rem);color:var(--head);text-align:center;line-height:1.5;margin-bottom:1.5rem}
+section{padding:clamp(3.5rem,10vw,6rem) 1.25rem;max-width:44rem;margin:auto}
+
+/* header */
+.top{position:sticky;top:0;z-index:20;height:56px;display:flex;align-items:center;justify-content:space-between;padding:0 1rem;background:var(--bg);border-bottom:1px solid var(--line)}
+.brand{font:700 1.05rem Cairo;color:var(--head);text-decoration:none}
+.top nav{display:none;gap:1.75rem}
+.top nav a{text-decoration:none;color:var(--muted);font-weight:600;font-size:.95rem;transition:color .3s}
+.top nav a:hover{color:var(--head)}
+.icon-btn{width:40px;height:40px;border:1px solid var(--line);border-radius:50%;background:none;color:var(--head);font-size:1.15rem;cursor:pointer}
+@media(min-width:768px){.top{padding:0 2.5rem}.top nav{display:flex;position:absolute;inset-inline:0;justify-content:center;pointer-events:none}.top nav a{pointer-events:auto}.brand,.icon-btn{position:relative}}
+
+/* buttons */
+.btn{display:inline-block;background:var(--btn);color:#fff;border:0;border-radius:999px;padding:.7rem 2.4rem;font:700 1.1rem Cairo;text-decoration:none;cursor:pointer;transition:background .3s,transform .3s var(--ease)}
+.btn:hover{background:var(--btn2)}.btn:active{transform:scale(.97)}.btn.sm{padding:.4rem 1.6rem;font-size:1rem}
+.link{background:none;border:0;color:var(--head);font:600 .95rem Cairo;cursor:pointer;padding:.4rem .6rem;text-decoration:underline;text-decoration-color:var(--gold);text-underline-offset:6px}
+
+/* hero */
+.hero{min-height:calc(100svh - 56px);max-width:none;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding-block:2rem 3rem}
+.star{width:34px;height:34px;fill:none;stroke:var(--gold);stroke-width:1.2;margin-bottom:1.5rem}
+h1{font-weight:400;line-height:1.35;color:var(--head)}
+h1 span{display:block}
+.h-a{font-size:clamp(1.5rem,5vw,2rem);color:var(--muted)}
+.h-b{font-size:clamp(1.3rem,4.5vw,1.7rem);color:var(--muted);margin-top:.25rem}
+.h-name{font-weight:700;font-size:clamp(2.6rem,11vw,5.2rem);margin-top:.6rem;line-height:1.4}
+.h-dua{font-size:clamp(1.15rem,4vw,1.5rem);margin-top:.9rem;color:var(--text)}
+.rule{width:64px;height:1px;border:0;background:var(--gold);margin:1.75rem auto}
+.h-note{max-width:26rem;color:var(--muted);margin-bottom:2rem}
+.hero>*{animation:rise .9s var(--ease) both}
+.hero>:nth-child(2){animation-delay:.1s}.hero>:nth-child(3){animation-delay:.3s}.hero>:nth-child(n+4){animation-delay:.5s}
+@keyframes rise{from{opacity:0;transform:translateY(14px)}}
+
+/* tasbeeh */
+.tasbeeh{text-align:center;min-height:100svh;padding-top:2.5rem}
+.tasbeeh h2{margin-bottom:1.25rem}
+.dhikr{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin-bottom:1.75rem}
+.dh{border:1px solid var(--line);background:var(--surface);color:var(--text);border-radius:14px;padding:.55rem .5rem;cursor:pointer;font:600 1rem/1.4 Cairo;transition:background .3s,color .3s,border-color .3s}
+.dh small{display:block;font-weight:400;font-size:.8rem;color:var(--muted)}
+.dh[aria-pressed=true]{background:var(--btn);color:#fff;border-color:var(--btn)}
+.dh[aria-pressed=true] small{color:rgba(255,255,255,.85)}
+@media(min-width:640px){.dhikr{grid-template-columns:repeat(4,1fr)}}
+
+.ringwrap{position:relative;width:min(72vw,320px,42svh);aspect-ratio:1;margin:0 auto 1.5rem}
+.ring{position:absolute;inset:0;width:100%;height:100%}
+.track,.arc{fill:none;stroke-width:1.6}
+.track{stroke:var(--line)}
+.arc{stroke:var(--gold);stroke-linecap:round;stroke-dasharray:289.03;stroke-dashoffset:289.03;transition:stroke-dashoffset .45s var(--ease)}
+.ringwrap.glow{animation:glow 1.8s ease-out}
+@keyframes glow{40%{filter:drop-shadow(0 0 14px rgba(198,161,91,.6))}}
+.tap{position:absolute;inset:7%;border-radius:50%;border:0;background:var(--btn);color:#fff;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0;touch-action:manipulation;user-select:none;-webkit-user-select:none;box-shadow:0 8px 24px rgba(18,55,42,.22);transition:background .3s}
+.tap:hover{background:var(--btn2)}
+.tap.pop{animation:pop .22s var(--ease)}
+@keyframes pop{50%{transform:scale(.965)}}
+.w{font:400 1.35rem Amiri;opacity:.9}
+.num{font:700 clamp(3rem,15vw,4.6rem)/1.15 Cairo;font-variant-numeric:tabular-nums}
+
+.goal-l{font-weight:600;color:var(--head);margin-bottom:.25rem}
+.chips{display:flex;flex-wrap:wrap;gap:.5rem;justify-content:center}
+.chip{min-width:3.2rem;border:1px solid var(--line);background:none;color:var(--text);border-radius:999px;padding:.15rem .9rem;font:600 1rem Cairo;cursor:pointer;transition:background .3s,color .3s}
+.chip[aria-pressed=true]{background:var(--head);color:var(--bg);border-color:var(--head)}
+#custom{width:8.5rem;border:1px solid var(--line);background:var(--surface);color:var(--text);border-radius:999px;padding:.15rem .9rem;font:400 .95rem Cairo;text-align:center}
+.done{max-height:0;opacity:0;overflow:hidden;transition:opacity .7s var(--ease),max-height .7s var(--ease);margin-top:0}
+.done.show{max-height:8rem;opacity:1;margin-top:1.25rem}
+.done strong{display:block;font:700 1.6rem Amiri;color:var(--head)}
+.done span{color:var(--muted)}
+.total{color:var(--muted);font-size:.9rem;margin-top:1rem}
+.tools{display:flex;justify-content:center;gap:1.25rem;flex-wrap:wrap;margin-top:.5rem}
+
+/* dua */
+.dua ol{list-style:arabic-indic inside;padding:0}
+.dua li{padding:1.4rem 0;border-top:1px solid var(--line);text-align:center;list-style-position:inside}
+.dua li:last-child{border-bottom:1px solid var(--line)}
+.dua li::marker{color:var(--gold);font-family:Cairo;font-size:.9rem}
+.dua p{font-size:clamp(1.35rem,4.6vw,1.75rem);line-height:2;color:var(--head);margin-bottom:.2rem}
+.copy{font-size:.85rem;color:var(--muted)}
+
+/* quran */
+.quran figure{text-align:center;padding:1.6rem 0}
+.quran figure+figure{border-top:1px solid var(--line)}
+blockquote{font-size:clamp(1.6rem,6vw,2.3rem);line-height:2.1;color:var(--head)}
+figcaption{color:var(--muted);font-size:.9rem;margin-top:.3rem}
+
+/* athar */
+.athar{text-align:center}
+.lead{color:var(--muted);margin-bottom:.5rem}
+.athar ul{list-style:none;padding:0;margin-bottom:2rem}
+.athar li{border-top:1px solid var(--line)}
+.athar li:last-child{border-bottom:1px solid var(--line)}
+.athar li a,.athar li button{display:block;width:100%;padding:.9rem 0;background:none;border:0;color:var(--head);font:600 1.15rem Cairo;text-decoration:none;cursor:pointer;transition:color .3s}
+.athar li a:hover,.athar li button:hover{color:var(--btn2)}
+.wish{font:400 1.35rem Amiri;color:var(--head);margin-bottom:1.5rem}
+
+/* footer */
+footer{text-align:center;padding:4rem 1.25rem 7rem;border-top:1px solid var(--line);background:var(--surface)}
+footer .star{margin-bottom:1rem}
+.f-a{font:400 1.3rem Amiri;color:var(--muted)}
+.f-name{font:700 clamp(1.8rem,7vw,2.6rem) Amiri;color:var(--head);line-height:1.6}
+.f-b{font:400 1.2rem Amiri;color:var(--muted)}
+.f-c{margin-top:1.5rem;font-size:.85rem;color:var(--muted)}
+
+/* floating / toast / dialog */
+.fab{position:fixed;inset-inline:0;bottom:max(1rem,env(safe-area-inset-bottom));margin:auto;width:max-content;z-index:15;background:var(--btn);color:#fff;text-decoration:none;font:700 1rem Cairo;padding:.45rem 1.8rem;border-radius:999px;box-shadow:0 4px 16px rgba(0,0,0,.2);opacity:0;visibility:hidden;transform:translateY(12px);transition:opacity .4s,transform .4s var(--ease),visibility .4s}
+.fab.show{opacity:1;visibility:visible;transform:none}
+.toast{position:fixed;inset-inline:0;bottom:4.5rem;margin:auto;width:max-content;max-width:90vw;z-index:30;background:var(--head);color:var(--bg);padding:.4rem 1.2rem;border-radius:10px;font-size:.95rem;opacity:0;pointer-events:none;transform:translateY(8px);transition:opacity .3s,transform .3s}
+.toast.show{opacity:1;transform:none}
+dialog{margin:auto;border:1px solid var(--line);border-radius:16px;background:var(--surface);color:var(--text);padding:1.5rem 1.75rem;text-align:center;max-width:90vw}
+dialog::backdrop{background:rgba(13,23,18,.55)}
+.dlg-b{display:flex;justify-content:center;align-items:center;gap:1.5rem;margin-top:1.1rem}
